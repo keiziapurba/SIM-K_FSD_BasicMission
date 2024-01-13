@@ -1,7 +1,7 @@
 # Keizia Purba's Web Portofolio👩🏻‍💻
 ---
 
-Welcome to my learning journey! This repository contains the HTML and CSS code for my personal website. Let's explore the website structure.
+Welcome to my learning journey! This repository contains the HTML and CSS code for my personal [website](https://keiziapurba.github.io/). Let's explore the website structure.
 
 ### About the Website
 
