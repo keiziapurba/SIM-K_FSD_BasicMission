@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Keizia Purba's Learning Journey</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #000000;
+            color: #fff;
+        }
+
+        header {
+            background-color: #293241; /* Ubah warna background header */
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        header img {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            width: 50px;
+            height: auto;
+        }
+
+        nav {
+            background-color: #ee6c4d;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #495E57;
+        }
+
+        section {
+            padding: 60px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: flex-start; 
+        }
+
+        .product-info {
+            flex: 1;
+            max-width: 800px;
+            background-color: #D0D4CA;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            order: 1;
+            z-index: 1;
+            margin-right: 20px;
+            margin-left: 40px;
+            margin-top: 20px;
+        }
+
+        .product-info h2 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .product-info p {
+            color: #191717;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .signup-form {
+            flex: 1;
+            max-width: 280px;
+            height: 210px;
+            background-color: #98c1d9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            order: 2;
+            z-index: 2;
+            margin-left: 60px;
+            margin-top: 35px;
+            
+        }
+
+        .signup-form h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        input {
+            width: calc(100% - 30px);
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 4px;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3c8bb9;
+            color: #fff;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #3d5a80;
+        }
+
+        .contact-info {
+            flex: 1;
+            max-width: 400px;
+            height: 140px;
+            background-color: #98c1d9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 70px;
+        }
+
+        .contact-info h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #fff;
+            text-align: left;
+            margin: 0;
+        }
+
+        .contact-info img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-top: 10px;
+            align-self: flex-end; 
+        }
+
+        footer {
+            background-color: #293241;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Toggle Button Style */
+        .toggle-btn {
+            background-color: #ee6c4d;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        .toggle-btn.dark-mode {
+            background-color: #555843;
+        }
+
+        .toggle-btn i {
+            margin-right: 5px;
+        }
+    </style>
+    <script>
+        function showContactInfo() {
+            var contactInfo = document.querySelector('.contact-info');
+            var productInfo = document.querySelector('.product-info');
+            var signupForm = document.querySelector('.signup-form');
+
+            // Menyembunyikan elemen-elemen yang tidak diperlukan
+            productInfo.style.display = 'none';
+            signupForm.style.display = 'none';
+            contactInfo.style.display = 'flex';
+        }
+
+        function showHomePage() {
+            var contactInfo = document.querySelector('.contact-info');
+            var productInfo = document.querySelector('.product-info');
+            var signupForm = document.querySelector('.signup-form');
+
+            // Menampilkan kembali semua elemen
+            productInfo.style.display = 'block';
+            signupForm.style.display = 'block';
+            contactInfo.style.display = 'none';
+        }
+
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <img src="n2.png" alt="Logo" />
+        <h1>Welcome to Keizia Purba's Learning Journey</h1>
+    </header>
+
+    <nav>
+        <a href="javascript:void(0)" onclick="showHomePage()">Home</a>
+        <a href="https://lnk.bio/keiziapurba" target="_blank">Portfolio</a>
+        <a href="javascript:void(0)" onclick="showContactInfo()">Contact</a>
+        <button class="toggle-btn" onclick="toggleDarkMode()">
+            <i class="fas fa-adjust"></i>
+        </button>
+    </nav>
+
+    <section>
+        <div class="product-info">
+            <h2>Data Explorer</h2>
+            <p>I went from studying International Relations to creating data stories. Now, as a Junior Data Engineer, I'm here to spark your curiosity. Let's dive into the world of data together!</p>
+        </div>
+
+        <p>
+        <div class="signup-form">
+            <h2>Stay Updated on Tech &#128640;</h2>
+            <form action="#" method="post">
+                <p>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Sign Up</button>
+                </p>
+            </form>
+        </div>
+        </p> 
+
+        <div class="contact-info" style="display: none;">
+            <h2>Contact Information</h2>
+            <p> Email: keiziapurba@gmail.com</p>
+            <p>LinkedIn: Keizia Purba</p>
+        </div>
+        <img src="Profile_foto_HD-removebg.png" alt="Profile Picture" style="width: 400px; height: 400px; border: 5px solid #7D7C7C; border-radius: 50%; margin-top: -12px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);">
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Keizia Purba | Connect with me: <a href="https://www.linkedin.com/in/keiziapurba/" target="_blank">LinkedIn</a></p>
+    </footer>
+
+</body>
+
+</html>
